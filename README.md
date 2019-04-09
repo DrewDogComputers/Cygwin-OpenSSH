@@ -20,3 +20,11 @@ Special thanks to the authors of the following software packages for their gener
 * SetACL: https://helgeklein.com/setacl/
 * Inno Setup: http://www.jrsoftware.org/
 * Halibut: https://www.chiark.greenend.org.uk/~sgtatham/halibut/
+
+## Contributions
+
+If you would like to contribute to this project, use this link:
+
+https://paypal.me/wastewart
+
+Thank you!
