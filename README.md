@@ -7,7 +7,7 @@ Cygwin OpenSSH is a convenient packaging of the Cygwin port of OpenSSH.
 * Windows Vista or Windows Server 2008 or later
 * Windows PowerShell 2.0 or later
 
-On Windows Vista and Windows Server 2008, Windows Management Framework (WMF) 2.0 is also required to meet the Windows PowerShell prerequisiite.
+On Windows Vista and Windows Server 2008, Windows Management Framework (WMF) 2.0 is also required to meet the Windows PowerShell prerequisite.
 
 ## Acknowledgments
 
