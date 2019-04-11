@@ -2,7 +2,7 @@
 #define MyAppShortName "CygOpenSSH"
 #define MyAppVersion "7.9.0"
 #define MySetupName "CygwinOpenSSH"
-#define MySetupVersion "0.0.0.2"
+#define MySetupVersion "0.0.0.3"
 #define MySetupCompany "Bill Stewart (bstewart@iname.com)"
 #define MyIconFilename "OpenSSH.ico"
 #define S4ULogonFixTaskCaption "Implement MsV1_0S4ULogon fix"
@@ -162,17 +162,18 @@ Source: "etc\defaults\etc\ssh_config";     DestDir: "{app}\etc\defaults\etc"; Co
 Source: "etc\defaults\etc\banner.txt";     DestDir: "{app}\etc\defaults\etc"; Components: server
 Source: "etc\defaults\etc\profile";        DestDir: "{app}\etc\defaults\etc"; Components: server
 Source: "etc\defaults\etc\sshd_config";    DestDir: "{app}\etc\defaults\etc"; Components: server
-; shared - /usr - other files
+; shared - /usr
 Source: "usr\share\doc\*";      DestDir: "{app}\usr\share\doc";      Components: client server; Flags: recursesubdirs
 Source: "usr\share\terminfo\*"; DestDir: "{app}\usr\share\terminfo"; Components: server;        Flags: recursesubdirs createallsubdirs
 Source: "usr\src\*";            DestDir: "{app}\usr\src";            Components: server;        Flags: recursesubdirs
+; shared - /users
+Source: "users\SYSTEM\.ssh\*"; DestDir: "{app}\users\SYSTEM\.ssh"; Components: server; Flags: uninsneveruninstall
 ; shared - /var
 Source: "var\log\lastlog"; DestDir: "{app}\var\log"; Components: server; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "var\run\utmp";    DestDir: "{app}\var\run"; Components: server; Flags: onlyifdoesntexist uninsneveruninstall
 
 [Dirs]
 Name: "{app}\tmp";       Components: client server
-Name: "{app}\users";     Components: server
 Name: "{app}\var\empty"; Components: server
 
 [Icons]
