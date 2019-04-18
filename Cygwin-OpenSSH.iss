@@ -1,8 +1,8 @@
 #define MyAppName "Cygwin OpenSSH"
 #define MyAppShortName "CygOpenSSH"
-#define MyAppVersion "7.9.0"
-#define MySetupName "CygwinOpenSSH"
-#define MySetupVersion "0.0.0.3"
+#define MyAppVersion "8.0.0"
+#define MySetupName "Cygwin-OpenSSH"
+#define MySetupVersion "0.0.1.0"
 #define MySetupCompany "Bill Stewart (bstewart@iname.com)"
 #define MyIconFilename "OpenSSH.ico"
 #define S4ULogonFixTaskCaption "Implement MsV1_0S4ULogon fix"
@@ -130,9 +130,9 @@ Source: "usr\sbin32\cygserver.exe";         DestDir: "{app}\usr\sbin"; Check: no
 Source: "usr\sbin32\sftp-server.exe";       DestDir: "{app}\usr\sbin"; Check: not Is64BitInstallMode; Components: server
 Source: "usr\sbin32\sshd.exe";              DestDir: "{app}\usr\sbin"; Check: not Is64BitInstallMode; Components: server
 ; shared - /
-Source: "{#MyIconFilename}"; DestDir: "{app}"; Components: client server; Flags: solidbreak
-Source: "CygwinOpenSSH.chm"; DestDir: "{app}"; Components: client server
-Source: "CygwinOpenSSH.pdf"; DestDir: "{app}"; Components: client server
+Source: "{#MyIconFilename}";  DestDir: "{app}"; Components: client server; Flags: solidbreak
+Source: "Cygwin-OpenSSH.chm"; DestDir: "{app}"; Components: client server
+Source: "Cygwin-OpenSSH.pdf"; DestDir: "{app}"; Components: client server
 ; shared - /bin
 Source: "bin\Win32API.def";        DestDir: "{app}\bin"; Components: client server
 Source: "bin\Edit-SSHKey.ps1";     DestDir: "{app}\bin"; Components: client server
@@ -177,7 +177,7 @@ Name: "{app}\tmp";       Components: client server
 Name: "{app}\var\empty"; Components: server
 
 [Icons]
-Name: "{group}\Documentation"; Filename: "{app}\CygwinOpenSSH.chm"; Comment: "CygwinOpenSSH documentation"
+Name: "{group}\Documentation"; Filename: "{app}\Cygwin-OpenSSH.chm"; Comment: "Cygwin OpenSSH documentation"
 
 [Tasks]
 Name: startservice; Description: "Start service"; Components: server

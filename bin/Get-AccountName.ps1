@@ -72,21 +72,6 @@ begin {
     throw "Unable to get computer join information."
   }
 
-  # Initialize NameTranslate object (uses IADsNameTranslate interface)
-  $ADS_NAME_INITTYPE_GC = 3
-  $ADS_NAME_TYPE_NT4    = 3
-  $NameTranslate = New-Object -ComObject "NameTranslate"
-  $NameTranslateAvailable = $false
-  try {
-    [Void] $NameTranslate.GetType().InvokeMember("Init", "InvokeMethod", $null, $NameTranslate, @($ADS_NAME_INITTYPE_GC, ""))
-    $NameTranslateAvailable = $true
-  }
-  catch [Management.Automation.MethodInvocationException] {
-    if ( $JoinInfo.IsDomainMember ) {
-      Write-Warning "NameTranslate initialization failed - names might not be in correct case."
-    }
-  }
-
   # Ignore these authority names when we output Cygwin account name
   $IgnoreAuthorities = @(
     "BUILTIN"
@@ -100,21 +85,9 @@ begin {
     )
     try {
       $sid = $name.Translate([Security.Principal.SecurityIdentifier])
-      $accountName = $sid.Translate([Security.Principal.NTAccount]).Value
+      $sid.Translate([Security.Principal.NTAccount]).Value
     }
     catch [Security.Principal.IdentityNotMappedException] {
-      return
-    }
-    if ( -not $NameTranslateAvailable ) {
-      return $accountName
-    }
-    try {
-      # Try IADsNameTranslate to get "case-correct" account name
-      [Void] $NameTranslate.GetType().InvokeMember("Set", "InvokeMethod", $null, $NameTranslate, @($ADS_NAME_TYPE_NT4, $accountName))
-      $NameTranslate.GetType().InvokeMember("Get", "InvokeMethod", $null, $NameTranslate, $ADS_NAME_TYPE_NT4)
-    }
-    catch [Management.Automation.MethodInvocationException] {
-      return $accountName
     }
   }
 
