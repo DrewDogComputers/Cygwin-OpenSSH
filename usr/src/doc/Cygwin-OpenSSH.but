@@ -1,4 +1,4 @@
-\# CygwinOpenSSH.but
+\# Cygwin-OpenSSH.but
 \# Written by Bill Stewart (bstewart at iname.com)
 \# Cygwin OpenSSH User Guide - Halibut source file
 
@@ -6,7 +6,7 @@
 \# MACROS
 \# ----------------------------------------------------------------------------
 
-\define{version} 0.1
+\define{version} 0.1.1
 
 \define{rightarrow} \u2192
 
@@ -91,8 +91,8 @@ The installer package is built using the \W{http://www.jrsoftware.org/isinfo.php
 
 Example installation command:
 
-\c CygwinOpenSSH_version /SILENT
-\e               iiiiiii
+\c Cygwin-OpenSSH_version /SILENT
+\e                iiiiiii
 
 Replace \e{version} with the version (e.g., \s{7.9.0}).
 
@@ -902,6 +902,10 @@ Special thanks to the authors of the following software packages for their gener
 \A{versionhistory} Version History
 \I{release history}
 \I{version history}
+
+\s{0.1.1}
+
+\b Added updated OpenSSH docs in \c{usr\\share\\doc\\openssh} directory.
 
 \s{0.1.0}
 

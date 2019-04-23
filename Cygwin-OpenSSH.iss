@@ -2,7 +2,7 @@
 #define MyAppShortName "CygOpenSSH"
 #define MyAppVersion "8.0.0"
 #define MySetupName "Cygwin-OpenSSH"
-#define MySetupVersion "0.0.1.0"
+#define MySetupVersion "0.0.1.1"
 #define MySetupCompany "Bill Stewart (bstewart@iname.com)"
 #define MyIconFilename "OpenSSH.ico"
 #define S4ULogonFixTaskCaption "Implement MsV1_0S4ULogon fix"
